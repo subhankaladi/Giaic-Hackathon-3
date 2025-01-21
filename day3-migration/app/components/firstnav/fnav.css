@@ -1,0 +1,55 @@
+.frstnav {
+    display: flex;
+    justify-content: space-between;
+    background-color: #F5F5F5;
+    align-items: center;
+    padding: 0 90px;
+    cursor: pointer;
+}
+
+.frstnav ul {
+    display: flex;
+    color: black;
+    font-size: 11px;
+    font-weight: 600;
+    gap: 10px;
+}
+
+@media (max-width: 768px) {
+    /* Adjust padding and layout for smaller screens */
+    .frstnav {
+        padding: 0 20px;
+    }
+
+    .frstnav ul {
+        font-size: 10px; /* smaller font size on mobile */
+        gap: 8px; /* reduce gap between items */
+    }
+
+    .skip img,
+    .ft img {
+        width: 30px; /* adjust image size for small screens */
+        height: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Further adjustments for very small screens */
+    .frstnav {
+        flex-direction: column; /* stack the items vertically */
+        padding: 10px; /* smaller padding */
+    }
+
+    .frstnav ul {
+        flex-direction: column; /* stack the list items vertically */
+        align-items: center;
+        font-size: 9px; /* even smaller font size */
+        gap: 5px;
+    }
+
+    .skip img,
+    .ft img {
+        width: 25px; /* make the icons even smaller */
+        height: 25px;
+   }
+}

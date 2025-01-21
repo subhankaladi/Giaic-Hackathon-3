@@ -1,0 +1,87 @@
+.snav-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 90px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.snav-main ul {
+    display: flex;
+    gap: 15px;
+}
+
+.snav-main .search {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+}
+
+.snav-main .search input {
+    border-radius: 20px;
+    padding: 3px;
+    background-color: #f5f5f5;
+    border: none;
+}
+
+@media (max-width: 768px) {
+    /* Adjust for tablets and smaller screens */
+    .snav-main {
+        padding: 10px 20px; /* Reduce padding */
+        font-size: 12px; /* Reduce font size */
+    }
+
+    .snav-main ul {
+        gap: 10px; /* Reduce gap between items */
+    }
+
+    .snav-main .search input {
+        width: 120px; /* Adjust search input width */
+        padding: 5px; /* Increase padding for easier touch input */
+    }
+
+    .nike-img img {
+        width: 30px; /* Reduce size of the image */
+        height: 30px;
+    }
+
+    .search {
+        gap: 10px; /* Increase gap between icons and search input */
+    }
+}
+
+@media (max-width: 480px) {
+    /* Adjust for smaller screens (mobile devices) */
+    .snav-main {
+        flex-direction: column; /* Stack elements vertically */
+        padding: 10px 10px; /* Reduce padding for mobile */
+    }
+
+    .snav-main ul {
+        flex-direction: column; /* Stack the menu items vertically */
+        align-items: center;
+        gap: 8px; /* Reduce gap between menu items */
+    }
+
+    .snav-main .search {
+        width: 100%; /* Make the search input container take full width */
+        margin-top: 10px;
+        justify-content: space-between; /* Spread out the icons and input */
+    }
+
+    .snav-main .search input {
+        width: 70%; /* Give search input more space */
+    }
+
+    .nike-img img {
+        width: 25px; /* Further reduce image size */
+        height: 25px;
+    }
+
+    .search svg {
+        width: 18px; /* Adjust icon size */
+        height: 18px;
+    }
+}

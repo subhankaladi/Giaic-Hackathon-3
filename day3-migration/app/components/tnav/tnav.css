@@ -1,0 +1,27 @@
+.tnav-main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f5;
+
+}
+
+.tnav-main h3{
+    font-size: 15px;
+    font-weight: 600;
+
+
+}
+
+.tnav-main a{
+    text-decoration: underline;
+    font-weight: 600;
+
+}
+.tnav-sec{
+    display: flex;
+    gap: 5px;
+    font-size: 11px;
+
+}
