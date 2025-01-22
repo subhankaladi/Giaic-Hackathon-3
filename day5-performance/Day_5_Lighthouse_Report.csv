@@ -1,0 +1,6 @@
+Test Case ID,Description,Steps,Expected Result,Actual Result,Status,Severity Level,Remarks
+1,Optimize images to reduce size,Analyze image size in Lighthouse and compress large images,Image size < 100KB,Image size > 153KB,Failed,Medium,Use tools like TinyPNG for compression
+2,Reduce unused JavaScript,Analyze JavaScript usage and remove unused code,Minimal unused JavaScript,Potential savings of 2095 KiB,Failed,High,Review and optimize JavaScript bundles
+3,Improve Largest Contentful Paint (LCP),Analyze LCP and optimize rendering critical resources,LCP under 2.5s,LCP is 3.5s,Failed,High,Prioritize rendering key resources
+4,Eliminate render-blocking resources,Analyze Lighthouse diagnostics and reduce blocking CSS/JS,Minimal render-blocking resources,Savings of 60ms,Failed,Low,Optimize critical CSS/JS files
+5,Avoid large layout shifts,Check Cumulative Layout Shift (CLS) and stabilize layout,CLS < 0.1,CLS is 0.242,Failed,Medium,Ensure stable layout and avoid shifts
