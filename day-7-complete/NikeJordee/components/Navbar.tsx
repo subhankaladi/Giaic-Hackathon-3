@@ -31,10 +31,10 @@ export default function Navbar() {
           </div>
           <div className="hidden md:flex space-x-4 text-center font-semibold">
             <Link
-              href="/map"
+              href="/products"
               className="text-sm text-gray-700 hover:text-gray-900"
             >
-              Find Store
+              Store
             </Link>
             <p className="text-sm">|</p>
             <Link
