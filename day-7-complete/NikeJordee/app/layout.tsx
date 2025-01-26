@@ -36,6 +36,8 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${poppins.className} ${inter.className} antialiased`}
       >
         <Navbar/>
+        <hr className="bg-black"/>  
+
         {children }
         <Toaster/>
         <Footer/>
