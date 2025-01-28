@@ -86,7 +86,7 @@ const REGISTER = () => {
         </form>
 
         <p className="text-xs text-center text-gray-600 mt-4">
-          By signing up, you agree to Nike's{" "}
+          By signing up, you agree to Nike{" "}
           <a href="#" className="underline">
             Privacy Policy
           </a>{" "}

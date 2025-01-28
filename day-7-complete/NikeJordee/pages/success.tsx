@@ -68,8 +68,7 @@ const Success = () => {
             Order ID: <strong>{orderDetails?.id}</strong>
           </p>
           <p>
-          </p>
-          <p> <strong>${dividedTotal.toFixed(2)}</strong>
+            <strong>${dividedTotal.toFixed(2)}</strong>
           </p>
         </div>
         <button

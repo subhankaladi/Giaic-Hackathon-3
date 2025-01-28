@@ -32,7 +32,7 @@ const Login = () => {
             </h1>
             <p className="mt-4 text-lg text-center">
               Shop now and use the coupon{" "}
-              <span className="font-bold text-black">"kaladi"</span> to get a
+              <span className="font-bold text-black">kaladi</span> to get a
               $50 discount on your next purchase!
             </p>
           </div>
