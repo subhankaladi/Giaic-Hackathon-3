@@ -2,16 +2,28 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import Stripe from 'stripe';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
-//   apiVersion: '2022-11-15', // Ensure this is a valid Stripe API version
+  // apiVersion: '2022-11-15', // Ensure this is a valid Stripe API version
 });
+
+interface CartItem {
+  name: string;
+  price: number;
+  quantity: number;
+}
+
+interface FormValues {
+  firstName: string;
+  lastName: string;
+  email: string;
+}
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'POST') {
     try {
-      const { cartItems, formValues} = req.body;
+      const { cartItems, formValues }: { cartItems: CartItem[]; formValues: FormValues } = req.body;
 
       // Map cart items to Stripe line items
-      const lineItems = cartItems.map((item: any) => ({
+      const lineItems = cartItems.map((item: CartItem) => ({
         price_data: {
           currency: 'usd',
           product_data: {
@@ -37,8 +49,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       });
 
       res.status(200).json({ id: session.id });
-    } catch (err: any) {
-      res.status(500).json({ error: err.message });
+    } catch (err: unknown) {
+      // It's better to handle unknown errors with proper type-checking
+      if (err instanceof Error) {
+        res.status(500).json({ error: err.message });
+      } else {
+        res.status(500).json({ error: 'An unknown error occurred' });
+      }
     }
   } else {
     res.setHeader('Allow', 'POST');
