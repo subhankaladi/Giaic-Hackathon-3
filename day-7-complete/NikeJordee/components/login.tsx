@@ -1,6 +1,12 @@
-"use client"
+"use client";
 
-import { SignedIn, SignedOut, SignInButton, UserButton, useUser } from "@clerk/nextjs";
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  UserButton,
+  useUser,
+} from "@clerk/nextjs";
 import Link from "next/link";
 import React from "react";
 import { SiNike } from "react-icons/si";
@@ -25,8 +31,10 @@ const Login = () => {
               Welcome, {user?.firstName || "User"}!
             </h1>
             <p className="mt-4 text-lg text-center">
-      Shop now and use the coupon <span className="font-bold text-black">"kaladi"</span> to get a $50 discount on your next purchase!
-    </p>
+              Shop now and use the coupon{" "}
+              <span className="font-bold text-black">"kaladi"</span> to get a
+              $50 discount on your next purchase!
+            </p>
           </div>
         </SignedIn>
 
@@ -65,7 +73,10 @@ const Login = () => {
                   <input type="checkbox" className="mr-2" />
                   <span className="text-gray-700 text-sm">Remember Me</span>
                 </label>
-                <Link href="#" className="text-sm text-gray-500 hover:underline">
+                <Link
+                  href="#"
+                  className="text-sm text-gray-500 hover:underline"
+                >
                   Forgot Password
                 </Link>
               </div>
