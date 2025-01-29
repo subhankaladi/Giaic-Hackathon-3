@@ -198,12 +198,17 @@ export default function Navbar() {
             <Link href="/jordan" className="block text-lg font-medium">
               Jordan
             </Link>
-           
             <Link href="/help" className="block text-lg font-medium">
               Help
             </Link>
             <Link href="/map" className="block text-lg font-medium">
               Find Store
+            </Link>
+            <Link href="/sign-up" className="block text-lg font-medium">
+              Sign up
+            </Link>
+            <Link href="/login" className="block text-lg font-medium">
+              Login
             </Link>
             <div className="flex space-x-4">
               <Button
