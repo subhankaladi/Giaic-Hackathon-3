@@ -420,8 +420,6 @@
 
 
 
-
-
 "use client";
 
 import { useEffect, useState } from "react";
@@ -443,7 +441,7 @@ interface Order {
   total: number;
   discount: number;
   orderDate: string;
-  status: string; // Add status field for filtering
+  status: string;
   cartItems: { name: string; image: string }[];
 }
 
@@ -483,16 +481,25 @@ export default function AdminDashboard() {
       ? orders
       : orders.filter((order) => order.status === filter);
 
+      const handleLogout = () => {
+            localStorage.removeItem("isLoggedIn"); // Remove login status
+            window.location.href = "/admin"; // Redirect to login page
+          };
+
   return (
     <ProtectedRoute>
-      <div className="flex h-screen bg-gray-100">
+      <div className="flex flex-col lg:flex-row h-screen bg-gray-100">
         {/* Sidebar */}
-        <div className="w-1/5 bg-blue-600 text-white p-6">
-          <h2 className="text-2xl font-bold mb-6">Admin Panel</h2>
+        <div className="w-full lg:w-1/5 bg-blue-600 text-white p-6">
+          <h2 className="text-2xl font-bold mb-6 text-center lg:text-left">
+            Admin Panel
+          </h2>
           <ul className="space-y-4">
             <li
               className={`cursor-pointer ${
-                filter === "All" ? "font-bold bg-white p-5 transition-all rounded-lg text-black" : "p-5 transition-all"
+                filter === "All"
+                  ? "font-bold bg-white p-5 transition-all rounded-lg text-black"
+                  : "p-5 transition-all"
               }`}
               onClick={() => setFilter("All")}
             >
@@ -500,7 +507,9 @@ export default function AdminDashboard() {
             </li>
             <li
               className={`cursor-pointer ${
-                filter === "pending" ? "font-bold bg-white p-5 transition-all rounded-lg text-black" : "p-5 transition-all"
+                filter === "pending"
+                  ? "font-bold bg-white p-5 transition-all rounded-lg text-black"
+                  : "p-5 transition-all"
               }`}
               onClick={() => setFilter("pending")}
             >
@@ -508,7 +517,9 @@ export default function AdminDashboard() {
             </li>
             <li
               className={`cursor-pointer ${
-                filter === "dispatch" ? "font-bold bg-white p-5 transition-all rounded-lg text-black" : "p-5 transition-all"
+                filter === "dispatch"
+                  ? "font-bold bg-white p-5 transition-all rounded-lg text-black"
+                  : "p-5 transition-all"
               }`}
               onClick={() => setFilter("dispatch")}
             >
@@ -516,7 +527,9 @@ export default function AdminDashboard() {
             </li>
             <li
               className={`cursor-pointer ${
-                filter === "success" ? "font-bold bg-white p-5 transition-all rounded-lg text-black" : "p-5 transition-all"
+                filter === "success"
+                  ? "font-bold bg-white p-5 transition-all rounded-lg text-black"
+                  : "p-5 transition-all"
               }`}
               onClick={() => setFilter("success")}
             >
@@ -526,10 +539,12 @@ export default function AdminDashboard() {
         </div>
 
         {/* Main Content */}
-        <div className="flex-1 p-6">
-          <h2 className="text-2xl font-bold mb-4">Orders</h2>
+        <div className="flex-1 p-6 overflow-y-auto">
+          <h2 className="text-2xl font-bold mb-4 text-center lg:text-left">
+            Orders
+          </h2>
           <div className="overflow-x-auto bg-white shadow-md rounded-lg">
-            <table className="min-w-full divide-y divide-gray-200">
+            <table className="min-w-full divide-y divide-gray-200 text-sm lg:text-base">
               <thead className="bg-gray-50">
                 <tr>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
@@ -627,6 +642,12 @@ export default function AdminDashboard() {
             </div>
           )}
         </div>
+        <button
+            onClick={handleLogout}
+            className="bg-red-500 text-white px-4 py-2 rounded"
+          >
+            Logout
+          </button>
       </div>
     </ProtectedRoute>
   );

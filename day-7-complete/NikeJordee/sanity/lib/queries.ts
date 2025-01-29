@@ -19,11 +19,16 @@ export const newProductsQuery = groq`*[_type == "product" && "new" in tags]`;
 
 export const menProductsQuery = groq`*[_type == "product" && "men" in tags]`;
 
-
 export const bestsellerProductsQuery = groq`*[_type == "product" && "bestseller" in tags]`;
 
 export const bannerQuery = groq`*[_type == 'banner' && "banner" in tags]`;
 
 export const menBannerQuery = groq`*[_type == 'banner' && "men" in tags]`;
 
- export const helpQuery =`*[_type == 'help']`
+export const helpQuery =`*[_type == 'help']`
+
+export const getEssentialsMensQuery = groq`*[_type == 'banner' && "essentials-mens" in tags]`;
+
+export const getEssentialsWomensQuery = groq`*[_type == 'banner' && "essentials-womens" in tags]`;
+
+export const getEssentialsKidsQuery = groq`*[_type == 'banner' && "essentials-kids" in tags]`;

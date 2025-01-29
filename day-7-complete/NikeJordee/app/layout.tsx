@@ -6,6 +6,8 @@ import {inter, poppins} from "./ui/font";
 import Footer from "@/components/Footer";
 import { Toaster } from "react-hot-toast";
 import {ClerkProvider} from "@clerk/nextjs"
+import { CartProvider } from "./context/CartContext";
+import CartIcon from "@/components/cart-icon";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -35,12 +37,14 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${poppins.className} ${inter.className} antialiased`}
       >
+        <CartProvider>
         <Navbar/>
         <hr className="bg-black"/>  
-
+        <CartIcon/>
         {children }
         <Toaster/>
         <Footer/>
+        </CartProvider>
       </body>
     </html>
     </ClerkProvider>

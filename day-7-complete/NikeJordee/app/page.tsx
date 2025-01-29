@@ -3,6 +3,8 @@ import Banner from "@/components/banner";
 import Air from "@/components/AirMax";
 import AirHomeProducts from "@/components/air-home-products";
 import ManBanner from "@/components/man-feature";
+import ESSENTIALS from "@/components/The-Essentials";
+import CategorySec from "@/components/Category-sec";
 
 export default function Home() {
   return (
@@ -16,6 +18,10 @@ export default function Home() {
     <AirHomeProducts/>
     <hr className="bg-black"/>  
     <ManBanner/>
+    <hr className="bg-black"/>  
+    <ESSENTIALS/>
+    <hr className="bg-black"/>  
+    <CategorySec/>
     <hr className="bg-black"/>  
    </div>
   );
