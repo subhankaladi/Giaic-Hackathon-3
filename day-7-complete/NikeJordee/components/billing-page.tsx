@@ -18,6 +18,7 @@ import { Label } from './ui/label';
 import toast from 'react-hot-toast';
 import { loadStripe } from '@stripe/stripe-js';
 import { client } from '@/sanity/lib/client';
+import AuthGuard from './AuthGuard';
 
 export default function BillingPage() {
     const [cartItems, setCartItems] = useState<Product[]>([]);
@@ -72,90 +73,6 @@ export default function BillingPage() {
         setFormErrors(errors);
         return Object.values(errors).every((error) => !error);
     };
-
-    
-// Update this function
-// const handlePlaceOrder = async () => {
-//     // Validate form before placing order
-//     if (validateForm()) {
-//         // Create order data object based on the form
-//         const orderData = {
-//             _type: 'order',
-//             firstName: formValues.firstName,
-//             lastName: formValues.lastName,
-//             address: formValues.address,
-//             city: formValues.city,
-//             zipCode: formValues.zipCode,
-//             phone: formValues.phone,
-//             email: formValues.email,
-//             cartItems: cartItems.map(item => ({
-//                 _type: 'reference',
-//                 _ref: item._id,  // Assuming cartItems have the correct product references
-//             })),
-//             total: total,  // Make sure this value is being calculated
-//             discount: discount,  // Add any discount if applicable
-//             orderDate: new Date().toISOString(),  // Order date for when the order was placed
-//         };
-
-//         try {
-//             // Send the order data to Sanity
-//             await client.create(orderData);
-
-//             // Notify the user of success
-//             toast.success('Order placed successfully');
-            
-//             // Optionally clear the cart or local storage
-//             localStorage.removeItem("appliedDiscount");
-
-//             // Redirect or clear form after successful order placement (optional)
-//         } catch (error) {
-//             // Handle any errors that occur during order placement
-//             toast.error('Failed to place order');
-//             console.error('Error creating order in Sanity:', error);
-//         }
-//     } else {
-//         // Handle validation error if form is not filled correctly
-//         toast.error('Please fill in all the fields');
-//     }
-// };
-
-
-
-// const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
-
-// const handlePlaceOrder = async () => {
-//   if (validateForm()) {
-//     try {
-//       const stripe = await stripePromise;
-
-//       const response = await fetch('/api/create-checkout-session', {
-//         method: 'POST',
-//         headers: {
-//           'Content-Type': 'application/json',
-//         },
-//         body: JSON.stringify({
-//           cartItems,
-//           formValues,
-//           total,
-//         }),
-//       });
-
-//       if (response.ok) {
-//         const { id } = await response.json();
-//         await stripe?.redirectToCheckout({ sessionId: id });
-//       } else {
-//         const error = await response.json();
-//         toast.error(error.message || 'Failed to create checkout session');
-//       }
-//     } catch (error) {
-//       toast.error('An error occurred while processing your request.');
-//       console.error(error);
-//     }
-//   } else {
-//     toast.error('Please fill in all the fields');
-//   }
-// };
-
 
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
@@ -221,7 +138,8 @@ const handlePlaceOrder = async () => {
 };
 
 
-    return (
+return (
+    <AuthGuard>
         <div className={`${inter.className} min-h-screen bg-white`}>
             {/* Breadcrumb */}
             <div className="mt-10">
@@ -373,5 +291,6 @@ const handlePlaceOrder = async () => {
                 </div>
             </div>
         </div>
+         </AuthGuard> 
     );
 }

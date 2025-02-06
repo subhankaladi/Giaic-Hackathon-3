@@ -33,7 +33,7 @@ export default function NotFound() {
                     </p>
                     <Button 
                         asChild
-                        className="h-12 px-8 bg-[#DB4444] hover:bg-[#DB4444]/90 rounded-sm text-base"
+                        className="h-12 px-8 bg-blue-600 hover:bg-blue-900 rounded-sm text-base"
                     >
                         <Link href="/">
                             Back to home page

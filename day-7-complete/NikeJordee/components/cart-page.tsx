@@ -12,6 +12,7 @@ import { getCartItems, removeFromCart, updateCartQuantity } from '@/app/actions/
 import { Product } from '@/types/product';
 import { urlFor } from '@/sanity/lib/image';
 import toast from "react-hot-toast"
+import AuthGuard from "./AuthGuard"
 
 export default function CartPage() {
     const [cartItems, setCartItems] = useState<Product[]>([]);
@@ -66,6 +67,7 @@ export default function CartPage() {
     const total = Math.max(subtotal - discount, 0); // Ensure total does not go negative
 
     return (
+        <AuthGuard>
         <div className={`${inter.className} min-h-screen bg-white`}>
             {/* Breadcrumb */}
             <div className="mt-10">
@@ -202,5 +204,6 @@ export default function CartPage() {
                 </div>
             </div>
         </div>
+        </AuthGuard> 
     )
 }
