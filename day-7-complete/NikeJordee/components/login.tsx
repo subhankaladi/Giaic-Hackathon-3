@@ -35,8 +35,8 @@ const Login = () => {
       if (result.status === "complete") {
         await setActive({ session: result.createdSessionId });
       }
-    } catch (err: any) {
-      setError(err.errors[0]?.message || "Sign-in failed");
+    } catch {
+      setError("Sign-in failed");
     }
   };
 
